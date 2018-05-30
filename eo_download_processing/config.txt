@@ -1,0 +1,9 @@
+catalog_db=db_name
+catalog_user=user
+catalog_pass=pass
+catalog_host=localhost
+catalog_port=5432
+geoserver_rest_url=url
+geoserver_products_path=data_path
+geoserver_user=geoserver_user
+geoserver_pass=geoserver_pass
