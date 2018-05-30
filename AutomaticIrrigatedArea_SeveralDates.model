@@ -1,0 +1,309 @@
+{
+    "values": {
+        "inputs": {
+            "regadioprobablevector1": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 108.12432882421854, 
+                            "x": 161.70769450546874
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "regadioprobablevector1", 
+                            "shapetype": [
+                                2
+                            ], 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "Regad\u00edo probable fecha 1"
+                        }, 
+                        "class": "processing.core.parameters.ParameterVector"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "regadioprobablevector2": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 106.31012797890594, 
+                            "x": 685.6994059171875
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "regadioprobablevector2", 
+                            "shapetype": [
+                                -1
+                            ], 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "Regad\u00edo probable fecha 2"
+                        }, 
+                        "class": "processing.core.parameters.ParameterVector"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }
+        }, 
+        "helpContent": {
+            "umbralsuperficieha": "Superficie umbral en ha. para la eliminaci\u00f3n de recintos procedentes del resultado de operaciones de an\u00e1lisis espacial.", 
+            "ALG_DESC": "Algoritmo para la detecci\u00f3n autom\u00e1tica de casos relacionados con regad\u00edos probables no contemplados en capas del sistema de informaci\u00f3n de tramitaci\u00f3n de expedientes ALBERCA. Proyecto RevelaDuero", 
+            "regados": "Capa regad\u00edo ALBERCA descargada de la plataforma M\u00edrameDuero", 
+            "ALG_CREATOR": "", 
+            "umbralnvdi": "Umbral de NDVI a partir de cual se considera que es probable la presencia de un cultivo de regad\u00edo.", 
+            "imagenndvi": "", 
+            "ALG_VERSION": "0.1", 
+            "recintossigpac": "", 
+            "udassuperficialeszonasregables": "", 
+            "OUTPUT_ALGQGISEXTRACTBYATTRIBUTE_3": "", 
+            "sigpactrminosmunicipales": "", 
+            "ncleosdepoblacin": ""
+        }, 
+        "group": "RevelaDuero", 
+        "name": "AutomaticIrrigatedArea_SeveralDates", 
+        "algs": {
+            "QGISMULTIPARTTOSINGLEPARTS_2": {
+                "values": {
+                    "name": "QGISMULTIPARTTOSINGLEPARTS_2", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "OUTPUT": {
+                            "values": {
+                                "description": "01 Regadio probable vector 2 singleparts", 
+                                "pos": {
+                                    "values": {
+                                        "y": 222.0, 
+                                        "x": 888.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 177.0, 
+                            "x": 688.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "INPUT": {
+                            "values": {
+                                "name": "regadioprobablevector2"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "qgis:multiparttosingleparts", 
+                    "description": "01 Multipart to singleparts 2"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "QGISFIELDCALCULATOR_1": {
+                "values": {
+                    "name": "QGISFIELDCALCULATOR_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "OUTPUT_LAYER": {
+                            "values": {
+                                "description": "11 Regadio probable area", 
+                                "pos": {
+                                    "values": {
+                                        "y": 525.5499999999998, 
+                                        "x": 730.25
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 480.54999999999984, 
+                            "x": 530.25
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "FIELD_TYPE": 0, 
+                        "NEW_FIELD": true, 
+                        "INPUT_LAYER": {
+                            "values": {
+                                "alg": "SAGAUNION_1", 
+                                "output": "RESULT"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "FIELD_PRECISION": 4.0, 
+                        "FIELD_LENGTH": 20.0, 
+                        "FORMULA": "$area/10000", 
+                        "FIELD_NAME": "area_union"
+                    }, 
+                    "active": true, 
+                    "consoleName": "qgis:fieldcalculator", 
+                    "description": "11 Field calculator"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "QGISBASICSTATISTICSFORNUMERICFIELDS_1": {
+                "values": {
+                    "name": "QGISBASICSTATISTICSFORNUMERICFIELDS_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "OUTPUT_HTML_FILE": {
+                            "values": {
+                                "description": "12 RegadioVeranoEstimado_Payuelos2017", 
+                                "pos": {
+                                    "values": {
+                                        "y": 659.1, 
+                                        "x": 829.35
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 614.1, 
+                            "x": 629.35
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "FIELD_NAME": "area_union", 
+                        "INPUT_LAYER": {
+                            "values": {
+                                "alg": "QGISFIELDCALCULATOR_1", 
+                                "output": "OUTPUT_LAYER"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "qgis:basicstatisticsfornumericfields", 
+                    "description": "12 Basic statistics for numeric fields"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "QGISMULTIPARTTOSINGLEPARTS_1": {
+                "values": {
+                    "name": "QGISMULTIPARTTOSINGLEPARTS_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "OUTPUT": {
+                            "values": {
+                                "description": "00 Regadio probable vector 1 singleparts", 
+                                "pos": {
+                                    "values": {
+                                        "y": 229.0, 
+                                        "x": 393.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 184.0, 
+                            "x": 193.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "INPUT": {
+                            "values": {
+                                "name": "regadioprobablevector1"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "qgis:multiparttosingleparts", 
+                    "description": "00 Multipart to singleparts 1"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SAGAUNION_1": {
+                "values": {
+                    "name": "SAGAUNION_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "RESULT": {
+                            "values": {
+                                "description": "10 Regadio probable UNION", 
+                                "pos": {
+                                    "values": {
+                                        "y": 383.0, 
+                                        "x": 636.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 338.0, 
+                            "x": 436.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "A": {
+                            "values": {
+                                "alg": "QGISMULTIPARTTOSINGLEPARTS_2", 
+                                "output": "OUTPUT"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "B": {
+                            "values": {
+                                "alg": "QGISMULTIPARTTOSINGLEPARTS_1", 
+                                "output": "OUTPUT"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "SPLIT": true
+                    }, 
+                    "active": true, 
+                    "consoleName": "saga:union", 
+                    "description": "10 Polygon uunion"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }
+        }
+    }, 
+    "class": "processing.modeler.ModelerAlgorithm.ModelerAlgorithm"
+}

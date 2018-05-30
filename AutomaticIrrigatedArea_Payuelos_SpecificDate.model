@@ -1,0 +1,675 @@
+{
+    "values": {
+        "inputs": {
+            "30tum": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 131.4172335600907, 
+                            "x": 119.51020408163254
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "30tum", 
+                            "showSublayersDialog": true, 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "Imagen NDVI 2"
+                        }, 
+                        "class": "processing.core.parameters.ParameterRaster"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "umbralsuperficieha": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 596.7366902789062, 
+                            "x": 1087.8511881656252
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "umbralsuperficieha", 
+                            "default": "0.5", 
+                            "value": "0.5", 
+                            "multiline": false, 
+                            "evaluateExpressions": false, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "Umbral superficie (ha)"
+                        }, 
+                        "class": "processing.core.parameters.ParameterString"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "umbralnvdi": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 485.0, 
+                            "x": 399.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "umbralnvdi", 
+                            "default": "(A>0.70)", 
+                            "value": "(A>0.70)", 
+                            "multiline": false, 
+                            "evaluateExpressions": false, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "Umbral NVDI"
+                        }, 
+                        "class": "processing.core.parameters.ParameterString"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "30tun": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 63.0, 
+                            "x": 200.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "30tun", 
+                            "showSublayersDialog": true, 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "Imagen NDVI 1"
+                        }, 
+                        "class": "processing.core.parameters.ParameterRaster"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "payuelos": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 55.0, 
+                            "x": 713.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "payuelos", 
+                            "shapetype": [
+                                2
+                            ], 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "Area a analizar"
+                        }, 
+                        "class": "processing.core.parameters.ParameterVector"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }
+        }, 
+        "helpContent": {
+            "umbralsuperficieha": "Superficie umbral en ha. para la eliminaci\u00f3n de recintos procedentes del resultado de operaciones de an\u00e1lisis espacial.", 
+            "ALG_DESC": "Algoritmo para la detecci\u00f3n autom\u00e1tica de casos relacionados con regad\u00edos probables no contemplados en capas del sistema de informaci\u00f3n de tramitaci\u00f3n de expedientes ALBERCA. Proyecto RevelaDuero", 
+            "regados": "Capa regad\u00edo ALBERCA descargada de la plataforma M\u00edrameDuero", 
+            "ALG_CREATOR": "", 
+            "umbralnvdi": "Umbral de NDVI a partir de cual se considera que es probable la presencia de un cultivo de regad\u00edo.", 
+            "imagenndvi": "", 
+            "ALG_VERSION": "0.1", 
+            "recintossigpac": "", 
+            "udassuperficialeszonasregables": "", 
+            "OUTPUT_ALGQGISEXTRACTBYATTRIBUTE_3": "", 
+            "sigpactrminosmunicipales": "", 
+            "ncleosdepoblacin": ""
+        }, 
+        "group": "RevelaDuero", 
+        "name": "AutomaticIrrigatedArea_Payuelos_FechaDada", 
+        "algs": {
+            "QGISCHECKVALIDITY_1": {
+                "values": {
+                    "name": "QGISCHECKVALIDITY_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "VALID_OUTPUT": {
+                            "values": {
+                                "description": "31a Regad\u00edo probable PAYUELOS v\u00e1lida", 
+                                "pos": {
+                                    "values": {
+                                        "y": 387.0, 
+                                        "x": 1388.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }, 
+                        "INVALID_OUTPUT": {
+                            "values": {
+                                "description": "31b Regad\u00edo probable PAYUELOS no v\u00e1lida", 
+                                "pos": {
+                                    "values": {
+                                        "y": 417.0, 
+                                        "x": 1388.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }, 
+                        "ERROR_OUTPUT": {
+                            "values": {
+                                "description": "31c Regad\u00edo probable PAYUELOS err\u00f3nea", 
+                                "pos": {
+                                    "values": {
+                                        "y": 447.0, 
+                                        "x": 1388.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 342.0, 
+                            "x": 1188.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "INPUT_LAYER": {
+                            "values": {
+                                "alg": "GDALOGRPOLYGONIZE_1", 
+                                "output": "OUTPUT"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "METHOD": 0
+                    }, 
+                    "active": true, 
+                    "consoleName": "qgis:checkvalidity", 
+                    "description": "31 Check validity"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "QGISSINGLEPARTSTOMULTIPART_1": {
+                "values": {
+                    "name": "QGISSINGLEPARTSTOMULTIPART_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "OUTPUT": {
+                            "values": {
+                                "description": "10 Payuelos multiparte", 
+                                "pos": {
+                                    "values": {
+                                        "y": 179.0, 
+                                        "x": 1110.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 134.0, 
+                            "x": 910.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "INPUT": {
+                            "values": {
+                                "name": "payuelos"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "FIELD": "waterorigi"
+                    }, 
+                    "active": true, 
+                    "consoleName": "qgis:singlepartstomultipart", 
+                    "description": "10 Singleparts to multipart 1"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "GDALOGRRASTERCALCULATOR_1": {
+                "values": {
+                    "name": "GDALOGRRASTERCALCULATOR_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "OUTPUT": {
+                            "values": {
+                                "description": "21 Clip raster x Payuelos x NDVI mayor 0,70", 
+                                "pos": {
+                                    "values": {
+                                        "y": 532.0, 
+                                        "x": 834.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 487.0, 
+                            "x": 634.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "INPUT_F": null, 
+                        "BAND_F": "1", 
+                        "INPUT_D": null, 
+                        "INPUT_E": null, 
+                        "BAND_B": "1", 
+                        "BAND_C": "1", 
+                        "BAND_A": "1", 
+                        "EXTRA": null, 
+                        "RTYPE": 1, 
+                        "BAND_D": "1", 
+                        "NO_DATA": "0", 
+                        "BAND_E": "1", 
+                        "FORMULA": {
+                            "values": {
+                                "name": "umbralnvdi"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "INPUT_A": {
+                            "values": {
+                                "alg": "SAGACLIPGRIDWITHPOLYGON_1", 
+                                "output": "OUTPUT"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "INPUT_B": null, 
+                        "INPUT_C": null
+                    }, 
+                    "active": true, 
+                    "consoleName": "gdalogr:rastercalculator", 
+                    "description": "21 Raster calculator"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "QGISFIELDCALCULATOR_1": {
+                "values": {
+                    "name": "QGISFIELDCALCULATOR_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "OUTPUT_LAYER": {
+                            "values": {
+                                "description": "42 RegadioProbable_FechaAnalizadaArea", 
+                                "pos": {
+                                    "values": {
+                                        "y": 485.9380400364963, 
+                                        "x": 2009.5726503272904
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 440.9380400364963, 
+                            "x": 1809.5726503272904
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "FIELD_TYPE": 0, 
+                        "NEW_FIELD": true, 
+                        "INPUT_LAYER": {
+                            "values": {
+                                "alg": "QGISSINGLEPARTSTOMULTIPART_3", 
+                                "output": "OUTPUT"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "FIELD_PRECISION": 2.0, 
+                        "FIELD_LENGTH": 20.0, 
+                        "FORMULA": "$area/10000", 
+                        "FIELD_NAME": "area02"
+                    }, 
+                    "active": true, 
+                    "consoleName": "qgis:fieldcalculator", 
+                    "description": "42 Field calculator 2"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "GDALOGRMERGE_1": {
+                "values": {
+                    "name": "GDALOGRMERGE_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "OUTPUT": {
+                            "values": {
+                                "description": "00 Combined raster NDVI", 
+                                "pos": {
+                                    "values": {
+                                        "y": 197.0, 
+                                        "x": 534.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 147.0, 
+                            "x": 363.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "RTYPE": 5, 
+                        "INPUT": [
+                            {
+                                "values": {
+                                    "name": "30tum"
+                                }, 
+                                "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                            }, 
+                            {
+                                "values": {
+                                    "name": "30tun"
+                                }, 
+                                "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                            }
+                        ], 
+                        "NODATA": -9999.0, 
+                        "PCT": false, 
+                        "SEPARATE": false
+                    }, 
+                    "active": true, 
+                    "consoleName": "gdalogr:merge", 
+                    "description": "00 Merge"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SAGACLIPGRIDWITHPOLYGON_1": {
+                "values": {
+                    "name": "SAGACLIPGRIDWITHPOLYGON_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "OUTPUT": {
+                            "values": {
+                                "description": "20 Clip raster NDVI x Payuelos", 
+                                "pos": {
+                                    "values": {
+                                        "y": 400.0, 
+                                        "x": 825.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 355.0, 
+                            "x": 625.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "INPUT": {
+                            "values": {
+                                "alg": "GDALOGRMERGE_1", 
+                                "output": "OUTPUT"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "_RESAMPLING": 3, 
+                        "POLYGONS": {
+                            "values": {
+                                "alg": "QGISSINGLEPARTSTOMULTIPART_1", 
+                                "output": "OUTPUT"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "saga:clipgridwithpolygon", 
+                    "description": "20 SAGA Clip raster NDVI x Payuelos multiparte"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "GDALOGRPOLYGONIZE_1": {
+                "values": {
+                    "name": "GDALOGRPOLYGONIZE_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "OUTPUT": {
+                            "values": {
+                                "description": "22 Regadio probable vector", 
+                                "pos": {
+                                    "values": {
+                                        "y": 676.0, 
+                                        "x": 885.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 631.0, 
+                            "x": 685.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "INPUT": {
+                            "values": {
+                                "alg": "GDALOGRRASTERCALCULATOR_1", 
+                                "output": "OUTPUT"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "FIELD": "DN"
+                    }, 
+                    "active": true, 
+                    "consoleName": "gdalogr:polygonize", 
+                    "description": "22 Polygonize (raster to vector)"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "QGISFIELDCALCULATOR_2": {
+                "values": {
+                    "name": "QGISFIELDCALCULATOR_2", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "OUTPUT_LAYER": {
+                            "values": {
+                                "description": "32 Regad\u00edo probable area", 
+                                "pos": {
+                                    "values": {
+                                        "y": 559.5999999999999, 
+                                        "x": 1437.8999999999999
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 514.5999999999999, 
+                            "x": 1237.8999999999999
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "FIELD_TYPE": 0, 
+                        "NEW_FIELD": true, 
+                        "INPUT_LAYER": {
+                            "values": {
+                                "alg": "QGISCHECKVALIDITY_1", 
+                                "output": "VALID_OUTPUT"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "FIELD_PRECISION": 4.0, 
+                        "FIELD_LENGTH": 20.0, 
+                        "FORMULA": "$area/10000", 
+                        "FIELD_NAME": "area"
+                    }, 
+                    "active": true, 
+                    "consoleName": "qgis:fieldcalculator", 
+                    "description": "32 Field calculator 1"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "QGISSINGLEPARTSTOMULTIPART_3": {
+                "values": {
+                    "name": "QGISSINGLEPARTSTOMULTIPART_3", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "OUTPUT": {
+                            "values": {
+                                "description": "41 RegadioProbable_FechaAnalizada", 
+                                "pos": {
+                                    "values": {
+                                        "y": 361.15, 
+                                        "x": 1948.3136748363556
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 316.15, 
+                            "x": 1748.3136748363556
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "INPUT": {
+                            "values": {
+                                "alg": "QGISEXTRACTBYATTRIBUTE_1", 
+                                "output": "OUTPUT"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "FIELD": "DN"
+                    }, 
+                    "active": true, 
+                    "consoleName": "qgis:singlepartstomultipart", 
+                    "description": "41 Singleparts to multipart 2"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "QGISEXTRACTBYATTRIBUTE_1": {
+                "values": {
+                    "name": "QGISEXTRACTBYATTRIBUTE_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "OUTPUT": {
+                            "values": {
+                                "description": "33 Regad\u00edo probable mayor 1 ha", 
+                                "pos": {
+                                    "values": {
+                                        "y": 675.1375814031253, 
+                                        "x": 1474.464497886719
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 631.8804809804692, 
+                            "x": 1301.8923054945321
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "OPERATOR": 2, 
+                        "INPUT": {
+                            "values": {
+                                "alg": "QGISFIELDCALCULATOR_2", 
+                                "output": "OUTPUT_LAYER"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "VALUE": {
+                            "values": {
+                                "name": "umbralsuperficieha"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "FIELD": "area"
+                    }, 
+                    "active": true, 
+                    "consoleName": "qgis:extractbyattribute", 
+                    "description": "33 Extract by attribute"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }
+        }
+    }, 
+    "class": "processing.modeler.ModelerAlgorithm.ModelerAlgorithm"
+}
